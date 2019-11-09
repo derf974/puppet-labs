@@ -1,0 +1,16 @@
+version: '3'
+services:
+  master:
+    hostname: master
+    build: master/.
+    image: puppet-master
+  agent:
+    hostname: agent1
+    build: agent/.
+    image: puppet-agent
+    command: tail -f /dev/null
+  agent:
+    hostname: agent2
+    build: agent/.
+    image: puppet-agent
+    command: tail -f /dev/null
