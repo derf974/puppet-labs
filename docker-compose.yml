@@ -4,13 +4,15 @@ services:
     hostname: master
     build: master/.
     image: puppet-master
-  agent:
-    hostname: agent1
+  web:
+    hostname: web
     build: agent/.
     image: puppet-agent
-    command: tail -f /dev/null
-  agent:
-    hostname: agent2
+    depends_on:
+        - master
+  db:
+    hostname: db
     build: agent/.
     image: puppet-agent
-    command: tail -f /dev/null
+    depends_on:
+        - master
