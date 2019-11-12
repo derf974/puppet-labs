@@ -7,6 +7,6 @@ RUN echo "autosign = true" >> /etc/puppet/puppet.conf
 
 RUN mkdir -p /etc/puppet/code/environments/production/manifests
 
-COPY site.pp /etc/puppet/code/environments/production/manifests/site.pp
+ADD infra /etc/puppet/code/environments/production/manifests/
 
 ENTRYPOINT puppet master --no-daemonize
